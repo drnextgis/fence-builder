@@ -1,0 +1,37 @@
+{
+  "name": "jsts",
+  "main": [
+    "lib/javascript.util.min.js",
+    "lib/jsts.min.js"
+  ],
+  "license": "LGPL",
+  "ignore": [
+    "authors.txt",
+    "bower.json",
+    "build",
+    "ChangeLog",
+    "examples",
+    "index.js",
+    "license-notice.txt",
+    "license.txt",
+    "package.json",
+    "README.md",
+    "src",
+    "test",
+    "testxml",
+    "tools",
+    "validationsuite"
+  ],
+  "homepage": "https://github.com/bjornharrtell/jsts",
+  "version": "0.16.0",
+  "_release": "0.16.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.16.0",
+    "commit": "ba5a4df5da70ae0f47d29c72fee8e56d15b86a1b"
+  },
+  "_source": "git://github.com/bjornharrtell/jsts.git",
+  "_target": "~0.16.0",
+  "_originalSource": "jsts",
+  "_direct": true
+}
