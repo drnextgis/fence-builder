@@ -107,7 +107,7 @@ Renderer.prototype.renderSegmentLabels = function(fence) {
     });
 
     $.each(fence.parts, function(i, part) {
-        partSize = part.length.toFixed(1);
+        partSize = part.length.toFixed(2);
         ps = new fabric.Text(partSize, {
             left: (part.x1 + part.x2)/2,
             top:  (part.y1 + part.y2)/2,
