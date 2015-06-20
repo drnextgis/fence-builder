@@ -32,14 +32,14 @@ Fence.prototype.initialize = function(table, close, split, scale) {
 
 
 Fence.prototype.buildEdges = function() {
-    var x1, x2, y1, y2, a, l, f, dx, dy;
-    var fence = this;
+    var x1, x2, y1, y2, l, f, dx, dy;
+    var a = 0, fence = this;
 
     $.each(this.source.sides, function(i, side) {
         l = side.length;
         f = side.frequency;
 
-        a  = (i == 0) ? side.angle : a + fence.edges[i-1].angle;
+        a += side.angle + ((i == 0) ? 0 : fence.edges[i-1].angle);
         x1 = (i == 0) ? 0 : fence.edges[i-1].x2;
         y1 = (i == 0) ? 0 : fence.edges[i-1].y2;
         x2 = x1 + Math.round(l*Math.cos(Math.PI*a/180)*fence.scale*100)/100;
