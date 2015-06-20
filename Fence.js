@@ -39,7 +39,7 @@ Fence.prototype.buildEdges = function() {
         l = side.length;
         f = side.frequency;
 
-        a += side.angle + ((i == 0) ? 0 : fence.edges[i-1].angle);
+        a  = side.angle + ((i == 0) ? 0 : fence.edges[i-1].angle);
         x1 = (i == 0) ? 0 : fence.edges[i-1].x2;
         y1 = (i == 0) ? 0 : fence.edges[i-1].y2;
         x2 = x1 + Math.round(l*Math.cos(Math.PI*a/180)*fence.scale*100)/100;
