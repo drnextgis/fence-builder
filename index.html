@@ -35,6 +35,8 @@
                     .append($("<td>").append($("<button>").attr("class", "btn btn-danger delete-row").text("Удалить").click(function() {$(this).closest("tr").remove(); }))));
 
                     this.reset();
+                    $(this).find("select option:selected").prop("selected", false);
+                    $(this).find("select").trigger("chosen:updated");
                     event.preventDefault();
                 });
 
