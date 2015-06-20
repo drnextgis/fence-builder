@@ -37,20 +37,14 @@ Fence.prototype.buildEdges = function() {
 
     $.each(this.source.sides, function(i, side) {
         l = side.length;
-        a = side.angle;
         f = side.frequency;
-        if (i == 0) {
-            x1 = 0;
-            y1 = 0;
-            x2 = x1 + Math.round(l*Math.cos(Math.PI*a/180)*fence.scale*100)/100;
-            y2 = y1 + Math.round(l*Math.sin(Math.PI*a/180)*fence.scale*100)/100;
-        } else {
-            a += fence.edges[i-1].angle;
-            x1 = fence.edges[i-1].x2;
-            y1 = fence.edges[i-1].y2;
-            x2 = x1 + Math.round(l*Math.cos(Math.PI*a/180)*fence.scale*100)/100;
-            y2 = y1 + Math.round(l*Math.sin(Math.PI*a/180)*fence.scale*100)/100;
-        }
+
+        a  = (i == 0) ? side.angle : a + fence.edges[i-1].angle;
+        x1 = (i == 0) ? 0 : fence.edges[i-1].x2;
+        y1 = (i == 0) ? 0 : fence.edges[i-1].y2;
+        x2 = x1 + Math.round(l*Math.cos(Math.PI*a/180)*fence.scale*100)/100;
+        y2 = y1 + Math.round(l*Math.sin(Math.PI*a/180)*fence.scale*100)/100;
+
         fence.edges.push({
             x1: x1,
             y1: y1,
@@ -60,6 +54,8 @@ Fence.prototype.buildEdges = function() {
             frequency: f,
             length: l
         });
+
+        // Замыкающий сегмент
         if ((i > 0) && (i == (fence.source.sides.length -1)) && fence.source.close) {
             x1 = x2;
             y1 = y2;
