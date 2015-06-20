@@ -1,9 +1,4 @@
 function Fence(table, close, split, scale) {
-    this.initialize(table, close, split, scale);
-};
-
-
-Fence.prototype.initialize = function(table, close, split, scale) {
     this.split  = split;
     this.scale  = scale;
     this.edges  = [];
@@ -55,7 +50,7 @@ Fence.prototype.buildEdges = function() {
             length: l
         });
 
-        // Замыкающий сегмент
+        // Замыкающее ребро
         if ((i > 0) && (i == (fence.source.sides.length -1)) && fence.source.close) {
             x1 = x2;
             y1 = y2;
